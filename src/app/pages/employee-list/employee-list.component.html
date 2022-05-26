@@ -1,0 +1,35 @@
+<div class="container-fluid p-0">
+  <app-navbar></app-navbar>
+
+  <div class="container-flex p-3 profile-page">
+    <div class="container-fluid w-100 mb-2">
+      <app-searcher (termEvent)="search($event)"></app-searcher>
+    </div>
+    <div class="row">
+      <div
+        class="col-xl-6 col-lg-7 col-md-12 justify-content-around"
+        *ngFor="let employee of userArr"
+      >
+        <div class="card profile-header border">
+          <div class="body">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="profile-image float-md-right">
+                  <img [src]="employee.img" alt="" />
+                </div>
+              </div>
+              <div class="col-lg-8 col-md-8 col-12">
+                <h4 class="m-t-0 m-b-0">
+                  <strong>{{ employee.lastname }},</strong> {{ employee.name }}
+                </h4>
+                <span class="job_post">{{ employee.job }}</span>
+                <p>{{ employee.cellphone }}</p>
+                <p>{{ employee.mail }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+
+<section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark main-container" >
+    <div class="container-fluid">
+      <div class="row  justify-content-center align-items-center d-flex-row  h-100">
+        <div class="col-12 col-md-4 col-lg-5   h-50 ">
+            <div class="card p-5">
+                <div class="card-body  p-3 justify-content-center align-items-center text-center bg-transparent" >
+                    <img style="width: 50%;" src="http://pre.endalia.com/wp-content/uploads/software-logo-endalia-hr.png">
+                </div>                
+                <div class="card-body">
+                    <h5 class="card-title mb-2">Bienvenido/a</h5>
+                    <h6 class="card-subtitle text-muted mb-2">introduce tus credenciales para acceder</h6>
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
+                        <div class="form-group">
+                            <label for="username">Usuario:</label>
+                            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                <div *ngIf="f.username.errors.required">Username is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="password">Contraseña:</label>
+                            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                            </div>
+                        </div>
+                        <div class="w-100 text-center mt-3">
+                            <button  type="submit" class="btn btn-primary btn-lg btn-block w-100" >                    
+                                Acceder
+                            </button>
+                        </div>                       
+                        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+ </section>
